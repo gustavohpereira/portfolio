@@ -13,17 +13,20 @@ interface Props{
 export default function Reveal(props:Props) {
 
     const ref = useRef(null)
-    console.log(ref)
+
     const inView = useInView(ref, { once: true })	
-    const mainControls = useAnimation()
+    const animationControl = useAnimation();
 
     useEffect(() => {
-        console.log("elemento",props.name)
-        console.log("esta visivel",inView)
         if (inView) {
-            console.log("visivel ativado",inView) 
-            mainControls.start("visible")
-        }
+            animationControl.start({
+            opacity:1,
+              y: 0,
+              transition: {
+                duration:1
+              }
+            });
+          }
     },[inView])
 
     
@@ -32,20 +35,17 @@ export default function Reveal(props:Props) {
         className={props.className}	
             ref={ref}
             variants={{
-                visible: { opacity: 1, y: 0 },
-                hidden: { opacity: 0, y: 75 },
+                hidden: { opacity: 0, y: 100 },
             }}
             initial="hidden"
-            animate="visible"
+            animate={animationControl}
             transition={
                 {
                     duration: 1,
-                    delay: 0.5
                     
                 }
             }
         >
-
             {props.children}
         </motion.div>
      

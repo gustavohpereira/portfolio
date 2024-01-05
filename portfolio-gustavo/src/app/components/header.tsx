@@ -13,6 +13,7 @@ export default function Header(){
             <button className={buttonColor} onClick={() => scrollToSection("home")}>INICIO</button>
             <button className={buttonColor} onClick={() => scrollToSection("about")}>SOBRE MIM</button>
             <button className={buttonColor} onClick={() => scrollToSection("tecnologies")}>TECNOLOGIAS</button>
+            <button className={buttonColor} onClick={() => scrollToSection("project")}>PROJETOS</button>
 
             </div>
         </div>

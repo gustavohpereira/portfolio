@@ -14,8 +14,8 @@ export default function Tecnologies(){
 
 
     return(
-        <div className="w-full flex justify-start my-10" id="tecnologies">
-            <Reveal name="tecnologies">
+        <div className="w-full flex justify-center my-10" id="tecnologies">
+            <Reveal name="tecnologies" className="flex justify-center">
 
             <div className=" w-1/2 flex flex-col items-center py-20 p-20 ">
                     <h1 className="text-6xl ">TECNOLOGIAS</h1>
