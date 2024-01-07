@@ -68,7 +68,7 @@ export default function ProjetosComponent(){
                                 );
                     })}
                 </div>
-                <div className="flex flex-col py-6 px-10 justify-center items-center">
+                <div className="flex flex-col py-6 px-10 justify-center items-center text-center">
 
                     <h1 className="text-3xl lg:text-4xl my-12">{slides[current].name}</h1>
                     <h1 className="text-lg lg:text-xl text-center">{slides[current].description}</h1>
