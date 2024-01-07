@@ -6,7 +6,7 @@ import ProjetosComponent from './components/Projetos'
 
 export default function Home() {
   return (
-    <div >
+    <div className='w-lvw'>
       <HeroSection></HeroSection>
       <AboutMe></AboutMe>
       <Tecnologies></Tecnologies>
