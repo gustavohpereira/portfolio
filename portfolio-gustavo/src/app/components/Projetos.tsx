@@ -40,8 +40,8 @@ export default function ProjetosComponent(){
                             transform: `translateX(-${current * 100}%)`,
                         }}
                         >
-                        {slides.map((s) => {
-                            return <img src={s.source} />;
+                        {slides.map((s,index) => {
+                            return <img src={s.source} key={index} />;
                         })} 
                         </div>
                 

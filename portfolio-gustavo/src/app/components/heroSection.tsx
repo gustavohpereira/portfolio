@@ -14,7 +14,7 @@ export default function HeroSection(){
     return(
         <div className="h-screen flex flex-col justify-center text-center " id="home">
 
-                <div className=" p-6  h-5/6 flex flex-col justify-center items-center gap-10 mt-14">
+                <div className=" p-6  h-5/6 flex flex-col lg:flex-row justify-center items-center gap-10 mt-14">
                             
                     <Reveal className="lg:hidden">
                         <div className="lg:border-l-4 lg:border-cyan-200 lg:pl-6 h-2/6 flex items-center justify-center ">

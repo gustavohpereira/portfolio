@@ -42,7 +42,7 @@ export default function AboutMe(){
         
 
             <div className="w-full flex justify-between my-10 bg-background-general/100" id="about">
-                <Reveal className="flex flex-col w-full justify-center items-center" name="about">
+                <Reveal className="flex flex-col lg:flex-row w-full justify-center items-center" name="about">
 
                   <div className="lg:hidden w-full flex justify-center items-center">
                       <div className="text-center">
