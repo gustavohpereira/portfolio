@@ -59,7 +59,7 @@ export default function AboutMe(){
 
                         {isCopied ? <MdMarkEmailRead size={20}/> :<MdEmail size={20}/>}
                     </span>
-                        {isCopied ? 'Copiado!' : 'Copiar Currículo'}
+                        {isCopied ? 'Copiado!' : 'Copiar endereço de email'}
                         </button>
                 </div>
 

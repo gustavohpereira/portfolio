@@ -1,10 +1,5 @@
 const  SliderData = [
     {
-        source: "/heroImage.jpg",
-        name: "projeto1",
-        description:"primeiro projeto"
-    },
-    {
         source: "/api3.png",
         name: "GERENCIAMENTO DE PROJETOS - SHORTS",
         description:"projeto realizado em conjunto com a empresa ionic health, para o gerenciamento de projetos, com criação e atualização dos mesmos, mas tambem com uma tela de organização kanban, onde o usuario pode organizar suas tarefas em colunas"
