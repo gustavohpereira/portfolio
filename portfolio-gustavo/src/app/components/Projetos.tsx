@@ -23,6 +23,8 @@ export default function ProjetosComponent(){
       else setCurrent(current + 1);
 
     };
+
+    console.log(SliderData)
     return(
         <Reveal>
 
