@@ -80,7 +80,7 @@ export default function AboutMe(){
 
                 
 
-                  <div className=" hidden w-1/2 flex justify-center items-center py-20 lg:block">
+                  <div className="w-1/2 flex justify-center items-center py-20 lg:block">
                       <div>
                           <h1 className="text-6xl m-6">SOBRE MIM</h1>
                           <ul className="list-disc text-2xl">

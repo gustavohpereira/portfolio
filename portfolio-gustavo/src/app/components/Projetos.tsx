@@ -5,6 +5,7 @@ import { useState } from "react";
 import SliderData from "@/data/SliderData";
 import { circIn } from "framer-motion";
 import Reveal from "./reveal";
+import Link from "next/link";
 
 
 export default function ProjetosComponent(){
@@ -24,27 +25,21 @@ export default function ProjetosComponent(){
 
     };
 
-    console.log(SliderData)
     return(
         <Reveal>
 
             <div className="w-full flex flex-col items-center  my-10 bg-background-general/100" id="project">
-                <h1 className="py-2 text-5xl lg:text-6xl my-10">MEUS PROJETOS</h1>
+                <h1 className="py-2 text-5xl lg:text-6xl my-10 text-center">MEUS PROJETOS</h1>
                 <div className="flex w-full justify-around items-center ">
                     <button className="rounded-full border-2 text-cyan-200 p-2  border-cyan-200 w-8 h-8 lg:w-16 lg:h-16 flex justify-center items-center  hover:bg-cyan-200 hover:text-black ease-in-out duration-500"
                         onClick={nextSlide}>
                         <FaLongArrowAltLeft size={28} />
                     </button>
-                    <div className="overflow-hidden relative w-8/12 lg:w-4/12 border-cyan-200 border rounded-lg">
+                    <div className="overflow-hidden  w-8/12 lg:w-4/12 border-cyan-200 border rounded-lg">
                         <div
                         className={`flex transition ease-out duration-40 `}
-                        style={{
-                            transform: `translateX(-${current * 100}%)`,
-                        }}
                         >
-                        {slides.map((s,index) => {
-                            return <img src={s.source} key={index} />;
-                        })} 
+                            <img src={slides[current].source}/>;
                         </div>
                 
                         
@@ -70,14 +65,14 @@ export default function ProjetosComponent(){
                                 );
                     })}
                 </div>
-                <div className="flex flex-col py-6 px-10 justify-center items-center text-center">
-
-                    <h1 className="text-3xl lg:text-4xl my-12">{slides[current].name}</h1>
-                    <h1 className="text-lg lg:text-xl text-center">{slides[current].description}</h1>
+                <div className="flex flex-col py-6 px-10 justify-center items-center text-center w-full">
+                    <h1 className="text-3xl lg:text-4xl my-4">{slides[current].name}</h1>
+                    <h1 className="text-xl lg:text-2xl">Tecnologias usadas: {slides[current].tecnologies}</h1>
+                    <hr className="w-full my-10"></hr>
+                    <h1 className="text-lg lg:text-xl text-center px-6">{slides[current].description}</h1>
+                    <Link className="border-2 border-cyan-200 rounded-full justify-center text-xl  p-4 m-10 w-3/4 hover:bg-cyan-200 hover:border-black hover:text-black ease-in-out duration-1000 flex lg:w-1/4 lg:text-center  " href={slides[current].gitLink}>Codigo do projeto</Link>
                 </div>
             </div>
         </Reveal>
     )
 }
-
-// express, aws, mysql, flask,django, firebase, bootstrap, scss
