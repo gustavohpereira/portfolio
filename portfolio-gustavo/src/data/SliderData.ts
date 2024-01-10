@@ -25,7 +25,7 @@ const SliderData = [
         name: "Portfólio",
         description: "Este projeto foi desenvolvido para mostrar um pouco do meu trabalho e me apresentar. O site foi desenvolvido utilizando Next, Typescript e Tailwind CSS.",
         technologies: "TypeScript, Next, Tailwind",
-        gitLink: "https://github.com/MirageGroup/API_MirageGroup_3sem"
+        gitLink: "https://github.com/gustavohpereira/portfolio"
       }
   ];
 
