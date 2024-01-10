@@ -14,6 +14,7 @@ const config: Config = {
       },
       colors:{
         'background-general': '#0A0A0A',
+        'text-white': '#FFFFFF',
       }
     },
   },
