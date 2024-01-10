@@ -19,7 +19,14 @@ const SliderData = [
       description: "Em colaboração com a Ionic Health, desenvolvi o projeto Shorts, uma aplicação React TypeScript com Node.js. Esta ferramenta permite a organização de equipes e projetos, oferecendo recursos para armazenar evidências, gerenciar pessoas e manter um fluxo eficiente de trabalho. Inclui uma funcionalidade de organização kanban para tarefas.",
       technologies: "TypeScript, React, Node.js, TypeORM, SQL",
       gitLink: "https://github.com/MirageGroup/API_MirageGroup_3sem"
-    }
+    },
+    {
+        source: "/Portfolio.png",
+        name: "Portfólio",
+        description: "Este projeto foi desenvolvido para mostrar um pouco do meu trabalho e me apresentar. O site foi desenvolvido utilizando Next, Typescript e Tailwind CSS.",
+        technologies: "TypeScript, Next, Tailwind",
+        gitLink: "https://github.com/MirageGroup/API_MirageGroup_3sem"
+      }
   ];
 
   export default SliderData

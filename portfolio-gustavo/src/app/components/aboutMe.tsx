@@ -90,7 +90,7 @@ export default function AboutMe(){
                     <div className="flex flex-col items-center">
                         <h1 className="text-6xl m-6">SOBRE MIM</h1>
                         <p className="text-xl mb-6">
-                          Olá! Meu nome é Gustavo Henrique e sou apaixonado por tecnologia. Atualmente, estou cursando Análise e Desenvolvimento de Sistemas na FATEC-SJC, onde entrei em 2022 e mergulhei de cabeça na fascinante área da programação.
+                          Olá! Meu nome é Gustavo Henrique e sou apaixonado por tecnologia. Atualmente, estou cursando Análise e Desenvolvimento de Sistemas na FATEC-SJC, onde ingressei na metade de 2022 e mergulhei de cabeça na fascinante área da programação.
                         </p>
                         <p className="text-xl mb-6">
                           Desde que ingressei na FATEC, tenho trabalhado incansavelmente para aprimorar minhas habilidades de desenvolvimento. Em 2023, tive a oportunidade de estagiar na área, o que ampliou ainda mais meu conhecimento prático e minha compreensão do campo.
