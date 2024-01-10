@@ -31,7 +31,7 @@ export default function ProjetosComponent(){
     return(
         <Reveal>
 
-            <div className="w-full flex flex-col items-center  my-10 bg-background-general/10 dark:bg-background-general/10" id="project">
+            <div className="w-full flex flex-col items-center  my-10 bg-neutral-900  dark:bg-neutral-900 dark:bg-background-general/10" id="project">
                 <h1 className="py-2 text-5xl lg:text-6xl my-10 text-center">MEUS PROJETOS</h1>
                 <div className="flex w-full justify-around items-center ">
                     <button className="rounded-full border-2 text-cyan-200 p-2  border-cyan-200 w-8 h-8 lg:w-16 lg:h-16 flex justify-center items-center  hover:bg-cyan-200 hover:text-black ease-in-out duration-500"
