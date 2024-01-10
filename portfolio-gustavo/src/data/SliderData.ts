@@ -2,7 +2,7 @@ const SliderData = [
     {
       source: "/API1.gif",
       name: "Assistência Técnica Escolar",
-      description: "o projeto SOS FATEC fpi desenvolvido para facilitar a organização da assistência técnica em ambientes escolares. A aplicação analisa o estado das máquinas, notifica o técnico responsável sobre problemas identificados e permite a criação de chamados. Além disso, proporciona ao técnico a capacidade de reorganizar os computadores em salas, por meio de drag and drop, gerando um mapa para facilitar o suporte.",
+      description: "o projeto SOS FATEC foi desenvolvido para facilitar a organização da assistência técnica em ambientes escolares. A aplicação analisa o estado das máquinas, notifica o técnico responsável sobre problemas identificados e permite a criação de chamados. Além disso, proporciona ao técnico a capacidade de reorganizar os computadores em salas, por meio de drag and drop, gerando um mapa para facilitar o suporte.",
       technologies: "Html,Css, Javascript, Flask, python, MySQL, Bootstrap",
       gitLink: "https://github.com/gustavohpereira/API_MirageGroup"
     },
