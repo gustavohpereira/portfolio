@@ -8,7 +8,7 @@ import Reveal from "./reveal";
 export default function Tecnologies(){
 
     const tecnologies = [
-        "git","java","node","Next","typeScript","javaScript","java","python","bootstrap","django","express", "aws","flask","mysql","firebase","Tailwind css"
+        "git","java","node","Next","typeScript","javaScript","python","bootstrap","django","express", "aws","flask","mysql","firebase","Tailwind css"
     ]
 
 
