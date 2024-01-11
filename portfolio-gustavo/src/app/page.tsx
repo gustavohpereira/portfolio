@@ -7,7 +7,7 @@ import Footer from './components/footer'
 
 export default function Home() {
   return (
-    <div className='w-full'>
+    <div className='w-lvw'>
       <HeroSection></HeroSection>
       <AboutMe></AboutMe>
       <Tecnologies></Tecnologies>
