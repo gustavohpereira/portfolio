@@ -73,7 +73,7 @@ export default function ProjetosComponent(){
                     <h1 className="text-xl lg:text-2xl">Tecnologias usadas: {slides[current].technologies}</h1>
                     <hr className="w-full my-10"></hr>
                     <h1 className="text-lg lg:text-xl text-center px-6">{slides[current].description}</h1>
-                    <Link className="border-2 border-cyan-200 rounded-full justify-center text-xl  p-4 m-10 w-3/4 hover:bg-cyan-200 hover:border-black hover:text-black ease-in-out duration-1000 flex lg:w-1/4 lg:text-center  " href={slides[current].gitLink}>Codigo do projeto</Link>
+                    <Link target="_blank" className="border-2 border-cyan-200 rounded-full justify-center text-xl  p-4 m-10 w-3/4 hover:bg-cyan-200 hover:border-black hover:text-black ease-in-out duration-1000 flex lg:w-1/4 lg:text-center  " href={slides[current].gitLink}>Codigo do projeto</Link>
                 </div>
             </div>
         </Reveal>

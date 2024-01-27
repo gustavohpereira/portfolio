@@ -47,7 +47,7 @@ export default function HeroSection(){
 
                 </div >
             
-            <Reveal>
+
 
             <div className="flex justify-center" >
                 <button className="rounded-full border-2 text-cyan-200  border-cyan-200 w-16 h-16 flex justify-center items-center  hover:bg-cyan-200 hover:text-black ease-in-out duration-1000"
@@ -56,7 +56,7 @@ export default function HeroSection(){
                     <FaLongArrowAltDown size={28} />
                 </button>
             </div>
-            </Reveal>
+
         </div>
     )
 }
