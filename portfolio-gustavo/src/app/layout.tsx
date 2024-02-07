@@ -1,27 +1,35 @@
-import type { Metadata } from 'next'
-import { Roboto } from 'next/font/google'
-import './globals.css'
-import Header from './components/header'
-import Footer from './components/footer'
+import type { Metadata } from "next";
+import { Roboto } from "next/font/google";
+import "./globals.css";
+import Header from "./components/header";
+import Footer from "./components/footer";
 
-const roboto = Roboto({ subsets: ['latin'],weight:["100","300","400","500"] })
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500"],
+});
 
 export const metadata: Metadata = {
-  title: 'Portfolio - Gustavo Henrique',
-}
+  title: "Portfolio - Gustavo Henrique",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="pt-br">
-      <body className={roboto.className + " bg-background-general text-slate-200 dark:text-slate-200"}>
+      <body
+        className={
+          roboto.className +
+          " bg-background-general text-slate-200 dark:text-slate-200 w-viewport h-viewport"
+        }
+      >
         <Header></Header>
         {children}
         <Footer></Footer>
-        </body>
+      </body>
     </html>
-  )
+  );
 }
