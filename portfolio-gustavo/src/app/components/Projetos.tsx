@@ -21,7 +21,8 @@ export default function ProjetosComponent() {
     else setCurrent(current - 1);
   };
 
-  let nextSlide = () => {
+
+    let nextSlide = () => {
     if (current === slides.length - 1) setCurrent(0);
     else setCurrent(current + 1);
   };
@@ -38,7 +39,7 @@ export default function ProjetosComponent() {
         <div className="flex w-full justify-around items-center ">
           <button
             className="rounded-full border-2 text-cyan-200 p-2  border-cyan-200 w-8 h-8 lg:w-16 lg:h-16 flex justify-center items-center  hover:bg-cyan-200 hover:text-black ease-in-out duration-500"
-            onClick={nextSlide}
+            onClick={previousSlide}
           >
             <FaLongArrowAltLeft size={28} />
           </button>
