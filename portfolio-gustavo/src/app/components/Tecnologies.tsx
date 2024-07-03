@@ -60,7 +60,7 @@ export default function Tecnologies() {
             {categories.map((category) => (
               <button
                 key={category}
-                className={`px-4 py-2 m-2 ${selectedCategory === category ? "border-b-2 border-white text-white" : ""
+                className={`lg:px-4 py-2 m-2 ${selectedCategory === category ? "border-b-2 border-white text-white" : ""
                   }`}
                 onClick={() => setSelectedCategory(category)}
               >
