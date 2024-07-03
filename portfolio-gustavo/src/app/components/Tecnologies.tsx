@@ -31,6 +31,7 @@ export default function Tecnologies() {
     { name: "typeScript", category: "Back-end" },
     { name: "javaScript", category: "Back-end" },
     { name: "bootstrap", category: "Front-end" },
+    { name: "axios", category: "Front-end" },
     { name: "Tailwind css", category: "Front-end" },
     { name: "Angular", category: "Front-end" },
     { name: "css", category: "Front-end" },
