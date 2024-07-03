@@ -18,30 +18,29 @@ export default function Tecnologies() {
     { name: "python", category: "Back-end" },
     { name: "php", category: "Back-end" },
     { name: "node", category: "Back-end" },
+    { name: "golang", category: "Back-end" },
+    { name: "typeScript", category: "Back-end" },
+    { name: "javaScript", category: "Back-end" },
     { name: "express", category: "Back-end" },
+    { name: "nestjs", category: "Back-end" },
     { name: "django", category: "Back-end" },
     { name: "flask", category: "Back-end" },
+    { name: "typeORM", category: "Back-end" },
+    { name: "pandas", category: "Back-end" },
     { name: "mysql", category: "Back-end" },
     { name: "firebase", category: "Back-end" },
     { name: "postgree", category: "Back-end" },
-    { name: "golang", category: "Back-end" },
-    { name: "nestjs", category: "Back-end" },
-    {name: "pandas", category: "Back-end"},
     { name: "Next", category: "Front-end" },
-    { name: "typeScript", category: "Back-end" },
-    { name: "typeORM", category: "Back-end" },
-    { name: "javaScript", category: "Back-end" },
     { name: "bootstrap", category: "Front-end" },
     { name: "axios", category: "Front-end" },
     { name: "Tailwind css", category: "Front-end" },
     { name: "Angular", category: "Front-end" },
     { name: "css", category: "Front-end" },
     { name: "React", category: "Front-end" },
-    { name: "React Native", category: "Front-end" },
-    
+    { name: "React Native", category: "Front-end" }
   ];
 
-  const capitalizeFirstLetter = (string:String) => {
+  const capitalizeFirstLetter = (string: String) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
