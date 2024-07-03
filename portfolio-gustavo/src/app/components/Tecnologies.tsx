@@ -56,7 +56,7 @@ export default function Tecnologies() {
       <Reveal name="tecnologies" className="flex justify-center">
         <div className="flex flex-col items-center p-10 ">
           <h1 className="text-5xl ">TECNOLOGIAS</h1>
-          <div className="py-4">
+          <div className="py-4 w-full flex justify-center">
             {categories.map((category) => (
               <button
                 key={category}
