@@ -9,7 +9,7 @@ export default function Tecnologies() {
   const tecnologies = [
     { name: "git", category: "Outros" },
     { name: "docker", category: "Outros" },
-    // { name: "Figma", category: "Outros" },
+    { name: "figma", category: "Outros" },
     { name: "power BI", category: "Outros" },
     { name: "aws", category: "Outros" },
     { name: "desenvolvimento agil (scrum)", category: "Outros" },
@@ -32,7 +32,7 @@ export default function Tecnologies() {
     { name: "bootstrap", category: "Front-end" },
     { name: "Tailwind css", category: "Front-end" },
     { name: "Angular", category: "Front-end" },
-    // { name: "CSS", category: "Front-end" },
+    { name: "css", category: "Front-end" },
     { name: "React", category: "Front-end" },
     { name: "React Native", category: "Front-end" },
     
