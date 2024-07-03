@@ -29,6 +29,7 @@ export default function Tecnologies() {
     {name: "pandas", category: "Back-end"},
     { name: "Next", category: "Front-end" },
     { name: "typeScript", category: "Back-end" },
+    { name: "typeORM", category: "Back-end" },
     { name: "javaScript", category: "Back-end" },
     { name: "bootstrap", category: "Front-end" },
     { name: "axios", category: "Front-end" },
