@@ -11,6 +11,7 @@ export default function Tecnologies() {
     { name: "docker", category: "Outros" },
     { name: "figma", category: "Outros" },
     { name: "power BI", category: "Outros" },
+    { name: "jest", category: "Outros" },
     { name: "aws", category: "Outros" },
     { name: "desenvolvimento agil (scrum)", category: "Outros" },
     { name: "java", category: "Back-end" },
