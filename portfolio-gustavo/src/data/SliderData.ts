@@ -31,6 +31,13 @@ const SliderData = [
     technologies: "TypeScript, Next, Tailwind",
     gitLink: "https://github.com/gustavohpereira/portfolio",
   },
+  {
+    "source": "/API4.jpeg",
+    "name": "Gerenciamento de Salas e Reuniões - ORCA",
+    "description": "Desenvolvido em colaboração com a empresa SIATT, este projeto oferece uma solução abrangente para o mapeamento, organização e gerenciamento de salas de reuniões físicas, híbridas e virtuais. Além de facilitar a criação de atas e a gestão de permissões de usuários e pautas de reuniões, o sistema também permite a conexão direta dos participantes ao Zoom, proporcionando uma experiência de reunião integrada e eficiente.",
+    "technologies": "React, TypeScript, Tailwind, Node.js, TypeORM, conexões com a API do Zoom, AWS",
+    "gitLink": "https://github.com/MirageGroup/API_MirageGroup_4sem"
+  }
 ];
 
 export default SliderData;
