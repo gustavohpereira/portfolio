@@ -5,6 +5,7 @@ import { SlDocs } from "react-icons/sl";
 import { MdEmail, MdMarkEmailRead } from "react-icons/md";
 import { motion, useAnimation } from "framer-motion";
 import Reveal from "./reveal";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 export default function AboutMe() {
   const [isCopied, setIsCopied] = useState(false);
@@ -28,6 +29,11 @@ export default function AboutMe() {
         behavior: "smooth",
       });
     }
+  };
+
+  const handleEmailClick = () => {
+    copyToClipboard("gustavohpa2003@gmail.com")
+    sendGTMEvent({ event: "email_click" ,value:"email_click" });
   };
 
   return (
@@ -71,7 +77,7 @@ export default function AboutMe() {
         </div>
 
         <div className="flex flex-col lg:flex-col justify-center items-center lg:gap-20 lg:w-1/2 gap-10 my-6 p-1 w-full">
-          <Link href={"/curriculo.pdf"} target="blank" className={buttonColor}>
+          <Link onClick={()=> sendGTMEvent({action: "CVclick", category: "Link", label: "ver-curriculo"})} href={"/curriculo.pdf"} target="blank" className={buttonColor}>
             <span className=" border-cyan-200 p-4 lg:mr-2 lg:h-full flex justify-center items-center">
               <SlDocs size={20} />
             </span>
@@ -79,7 +85,7 @@ export default function AboutMe() {
           </Link>
           <button
             className={buttonColor}
-            onClick={() => copyToClipboard("gustavohpa2003@gmail.com")}
+            onClick={handleEmailClick}
           >
             <span className=" border-cyan-200 p-4 lg:mr-2 lg:h-full flex justify-center items-center">
               {isCopied ? <MdMarkEmailRead size={20} /> : <MdEmail size={20} />}
