@@ -3,9 +3,15 @@ import Link from "next/link";
 import { useState } from "react";
 import { SlDocs } from "react-icons/sl";
 import { MdEmail, MdMarkEmailRead } from "react-icons/md";
-import { motion, useAnimation } from "framer-motion";
 import Reveal from "./reveal";
 import { sendGTMEvent } from "@next/third-parties/google";
+
+const highlights = [
+  "Cursando Análise e Desenvolvimento de Sistemas na FATEC-SJC desde 2022",
+  "Experiência de estágio na área desde 2023",
+  "Interesse em projetos inovadores que transformam ideias em realidade",
+  "Comunicação clara e colaboração efetiva em equipe",
+];
 
 export default function AboutMe() {
   const [isCopied, setIsCopied] = useState(false);
@@ -13,116 +19,71 @@ export default function AboutMe() {
   function copyToClipboard(text: string) {
     navigator.clipboard.writeText(text);
     setIsCopied(true);
-    setTimeout(() => {
-      setIsCopied(false);
-    }, 3000);
+    setTimeout(() => setIsCopied(false), 3000);
   }
 
-  const buttonColor =
-    "border-2 border-cyan-200 rounded-full w-4/5 lg:w-1/2 hover:bg-cyan-200 hover:border-black hover:text-black ease-in-out duration-1000 flex  items-center";
-
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      window.scrollTo({
-        top: section.offsetTop,
-        behavior: "smooth",
-      });
-    }
-  };
-
   const handleEmailClick = () => {
-    copyToClipboard("gustavohpa2003@gmail.com")
-    sendGTMEvent({ event: "email_click" ,value:"email_click" });
+    copyToClipboard("gustavohpa2003@gmail.com");
+    sendGTMEvent({ event: "email_click", value: "email_click" });
   };
+
+  const buttonColor =
+    "border-2 border-purple-200 rounded-full w-full hover:bg-purple-200 hover:border-black hover:text-black ease-in-out duration-1000 flex items-center whitespace-nowrap";
 
   return (
     <div
-      className="w-full flex justify-between bg-neutral-900 dark:bg-neutral-900 px-10"
+      className="w-full relative overflow-hidden  px-10 py-20"
       id="about"
     >
+
       <Reveal
-        className="flex flex-col lg:flex-row w-full justify-center items-center "
+        className="relative z-10 flex flex-col lg:flex-row w-full justify-center items-center gap-12 lg:gap-20 max-w-5xl mx-auto"
         name="about"
       >
-        <div className="lg:hidden w-full flex justify-center items-center">
-          <div className="flex flex-col items-center text-center">
-            <h1 className="text-4xl m-6">SOBRE MIM</h1>
-            <p className="text-lg mb-6">
-              Olá! Meu nome é Gustavo Henrique e sou apaixonado por tecnologia.
-              Atualmente, estou cursando Análise e Desenvolvimento de Sistemas
-              na FATEC-SJC, onde entrei em 2022 e mergulhei de cabeça na
-              fascinante área da programação.
-            </p>
-            <p className="text-lg mb-6">
-              Desde que ingressei na FATEC, tenho trabalhado incansavelmente
-              para aprimorar minhas habilidades de desenvolvimento. Em 2023,
-              tive a oportunidade de estagiar na área, o que ampliou ainda mais
-              meu conhecimento prático e minha compreensão do campo.
-            </p>
-            <p className="text-lg mb-6">
-              Tenho especial interesse em colaborar em projetos inovadores.
-              Acredito que a tecnologia pode ser uma força poderosa para
-              transformar ideias em realidade, e estou sempre ansioso para
-              enfrentar novos desafios.
-            </p>
-            <p className="text-lg mb-6">
-              Além das habilidades técnicas, considero a comunicação uma parte
-              vital do desenvolvimento de projetos. Minha abordagem é não apenas
-              entender os códigos, mas também compreender as pessoas. Sou
-              conhecido por minha habilidade em colaborar efetivamente em equipe
-              e por buscar soluções criativas para os problemas.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-col lg:flex-col justify-center items-center lg:gap-20 lg:w-1/2 gap-10 my-6 p-1 w-full">
-          <Link onClick={()=> sendGTMEvent({action: "CVclick", category: "Link", label: "ver-curriculo"})} href={"/curriculo.pdf"} target="blank" className={buttonColor}>
-            <span className=" border-cyan-200 p-4 lg:mr-2 lg:h-full flex justify-center items-center">
+        {/* Botões */}
+        <div className="flex flex-col justify-center items-center gap-6 w-full lg:w-56 flex-shrink-0 order-2 lg:order-1">
+          <Link
+            onClick={() => sendGTMEvent({ action: "CVclick", category: "Link", label: "ver-curriculo" })}
+            href="/curriculo.pdf"
+            target="_blank"
+            className={buttonColor}
+          >
+            <span className="border-r border-purple-200/40 p-4 flex justify-center items-center">
               <SlDocs size={20} />
             </span>
-            Ver Curriculo
+            <span className="px-4">Ver Currículo</span>
           </Link>
-          <button
-            className={buttonColor}
-            onClick={handleEmailClick}
-          >
-            <span className=" border-cyan-200 p-4 lg:mr-2 lg:h-full flex justify-center items-center">
+
+          <button className={buttonColor} onClick={handleEmailClick}>
+            <span className="border-r border-purple-200/40 p-4 flex justify-center items-center">
               {isCopied ? <MdMarkEmailRead size={20} /> : <MdEmail size={20} />}
             </span>
-            {isCopied ? "Copiado!" : "Copiar email"}
+            <span className="px-4">{isCopied ? "Copiado!" : "Copiar email"}</span>
           </button>
         </div>
 
-        <div className=" hidden w-1/2  justify-center items-center py-20 lg:flex">
-          <div className="flex flex-col items-center">
-            <h1 className="text-6xl m-6">SOBRE MIM</h1>
-            <p className="text-xl mb-6">
-              Olá! Meu nome é Gustavo Henrique e sou apaixonado por tecnologia.
-              Atualmente, estou cursando Análise e Desenvolvimento de Sistemas
-              na FATEC-SJC, onde ingressei na metade de 2022 e mergulhei de
-              cabeça na fascinante área da programação.
-            </p>
-            <p className="text-xl mb-6">
-              Desde que ingressei na FATEC, tenho trabalhado incansavelmente
-              para aprimorar minhas habilidades de desenvolvimento. Em 2023,
-              tive a oportunidade de estagiar na área, o que ampliou ainda mais
-              meu conhecimento prático e minha compreensão do campo.
-            </p>
-            <p className="text-xl mb-6">
-              Tenho especial interesse em colaborar em projetos inovadores.
-              Acredito que a tecnologia pode ser uma força poderosa para
-              transformar ideias em realidade, e estou sempre ansioso para
-              enfrentar novos desafios.
-            </p>
-            <p className="text-xl mb-6">
-              Além das habilidades técnicas, considero a comunicação uma parte
-              vital do desenvolvimento de projetos. Minha abordagem é não apenas
-              entender os códigos, mas também compreender as pessoas. Sou
-              conhecido por minha habilidade em colaborar efetivamente em equipe
-              e por buscar soluções criativas para os problemas.
-            </p>
-          </div>
+        {/* Texto */}
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left flex-1 order-1 lg:order-2">
+          <span className="text-xs font-medium text-purple-400 tracking-widest uppercase mb-4">
+            sobre mim
+          </span>
+
+          <h1 className="text-4xl lg:text-6xl font-semibold mb-6">SOBRE MIM</h1>
+
+          <p className="text-lg lg:text-xl text-neutral-300 leading-relaxed mb-8">
+            Sou apaixonado por tecnologia e acredito que bom código nasce da
+            combinação entre lógica e comunicação. Busco sempre criar soluções
+            que façam a diferença — tanto para quem usa quanto para quem mantém.
+          </p>
+
+          <ul className="flex flex-col gap-4 w-full">
+            {highlights.map((item, i) => (
+              <li key={i} className="flex items-start gap-3 text-base lg:text-lg text-neutral-400">
+                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-purple-400 flex-shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </Reveal>
     </div>

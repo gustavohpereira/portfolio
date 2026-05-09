@@ -3,7 +3,7 @@ import scrollToSection from "../functions/scrollTo";
 
 export default function Header() {
   const buttonColor =
-    " text-base hover:text-cyan-200 duration-300 bg-background-general lg:text-xl";
+    " text-base hover:text-purple-200 duration-300 bg-background-general lg:text-xl";
 
   return (
     <div className="fixed border-b border-gray-500 py-4 bg-background-general w-lvw lg:flex lg:justify-center">

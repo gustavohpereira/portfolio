@@ -1,93 +1,113 @@
 "use client";
-
-import {
-  FaLongArrowAltDown,
-  FaLongArrowAltRight,
-  FaLongArrowAltLeft,
-} from "react-icons/fa";
 import { useState } from "react";
+import { FaLongArrowAltRight, FaLongArrowAltLeft, FaGithub } from "react-icons/fa";
 import SliderData from "@/data/SliderData";
-import { circIn } from "framer-motion";
 import Reveal from "./reveal";
 import Link from "next/link";
 
 export default function ProjetosComponent() {
   const slides = SliderData;
+  const [current, setCurrent] = useState(0);
 
-  let [current, setCurrent] = useState(0);
+  const previousSlide = () =>
+    setCurrent(current === 0 ? slides.length - 1 : current - 1);
 
-  let previousSlide = () => {
-    if (current === 0) setCurrent(slides.length - 1);
-    else setCurrent(current - 1);
-  };
+  const nextSlide = () =>
+    setCurrent(current === slides.length - 1 ? 0 : current + 1);
 
-
-    let nextSlide = () => {
-    if (current === slides.length - 1) setCurrent(0);
-    else setCurrent(current + 1);
-  };
+  const slide = slides[current];
 
   return (
-      <div
-      className="w-full flex flex-col items-center  my-10 bg-neutral-900  dark:bg-neutral-900 dark:bg-background-general/10"
+    <div
+      className="w-full relative overflow-hidden py-20 px-6"
+      
       id="project"
-      >
-        <h1 className="py-2 text-5xl lg:text-6xl my-10 text-center">
+    >
+
+
+      <Reveal className="relative z-10 flex flex-col items-center">
+        {/* Cabeçalho */}
+        <span className="text-xs font-medium text-purple-400 tracking-widest uppercase mb-3">
+          portfólio
+        </span>
+        <h1 className="text-5xl lg:text-6xl font-semibold mb-12 text-center">
           MEUS PROJETOS
         </h1>
-          <Reveal>
-        <div className="flex w-full justify-around items-center ">
-          <button
-            className="rounded-full border-2 text-cyan-200 p-2  border-cyan-200 w-8 h-8 lg:w-16 lg:h-16 flex justify-center items-center  hover:bg-cyan-200 hover:text-black ease-in-out duration-500"
-            onClick={previousSlide}
-          >
-            <FaLongArrowAltLeft size={28} />
-          </button>
-          <div className="overflow-hidden  w-8/12 lg:w-4/12 border-cyan-200 border rounded-lg">
-            <div className={`flex transition ease-out duration-40 `}>
-              <img src={slides[current].source} />;
+
+        <div className="w-full max-w-3xl">
+          {/* Slider */}
+          <div className="flex items-center gap-4">
+            <button
+              onClick={previousSlide}
+              className="flex-shrink-0 rounded-full border-2 text-purple-200 border-purple-200/40 w-10 h-10 lg:w-12 lg:h-12 flex justify-center items-center hover:bg-purple-200 hover:text-black hover:border-purple-200 ease-in-out duration-500"
+              aria-label="Projeto anterior"
+            >
+              <FaLongArrowAltLeft size={20} />
+            </button>
+
+            {/* Imagem */}
+            <div className="flex-1 border border-purple-200/20 rounded-2xl overflow-hidden bg-neutral-800 aspect-video relative">
+              <img
+                src={slide.source}
+                alt={slide.name}
+                className="w-full h-full object-cover transition-opacity duration-300"
+              />
+              <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-purple-300 text-xs px-3 py-1 rounded-full border border-purple-400/20">
+                {current + 1} / {slides.length}
+              </div>
             </div>
+
+            <button
+              onClick={nextSlide}
+              className="flex-shrink-0 rounded-full border-2 text-purple-200 border-purple-200/40 w-10 h-10 lg:w-12 lg:h-12 flex justify-center items-center hover:bg-purple-200 hover:text-black hover:border-purple-200 ease-in-out duration-500"
+              aria-label="Próximo projeto"
+            >
+              <FaLongArrowAltRight size={20} />
+            </button>
           </div>
-          <button
-            className="rounded-full border-2 text-cyan-200 p-2  border-cyan-200 w-8 h-8 lg:w-16 lg:h-16 flex justify-center items-center  hover:bg-cyan-200 hover:text-black ease-in-out duration-500"
-            onClick={nextSlide}
-          >
-            <FaLongArrowAltRight size={28} />
-          </button>
-        </div>
-        <div className="flex gap-10 py-4 justify-center">
-          {slides.map((s: any, i: any) => {
-            return (
-              <div
-                onClick={() => {
-                  setCurrent(i);
-                }}
-                key={"circle" + i}
-                className={`rounded-full w-3 h-3 lg:w-5 lg:h-5  cursor-pointer  ${
-                  i == current ? "bg-cyan-200" : "bg-gray-500"
+
+          {/* Dots */}
+          <div className="flex gap-2 justify-center mt-5">
+            {slides.map((_: any, i: number) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  i === current
+                    ? "bg-purple-300 w-6"
+                    : "bg-neutral-600 w-2 hover:bg-neutral-400"
                 }`}
-              ></div>
-            );
-          })}
+                aria-label={`Ir para projeto ${i + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Info do projeto */}
+          <div className="mt-8 flex flex-col items-center text-center">
+            <h2 className="text-3xl lg:text-4xl font-semibold mb-3">{slide.name}</h2>
+
+            <div className="flex items-center gap-2 bg-purple-400/8 border border-purple-400/20 rounded-full px-4 py-1.5 text-sm text-purple-300 mb-6">
+              <span>🛠</span>
+              <span>{slide.technologies}</span>
+            </div>
+
+            <hr className="w-full border-neutral-700/50 mb-6" />
+
+            <p className="text-base lg:text-lg text-neutral-400 leading-relaxed max-w-xl mb-8 px-2">
+              {slide.description}
+            </p>
+
+            <Link
+              target="_blank"
+              href={slide.gitLink}
+              className="flex items-center gap-3 border-2 border-purple-200/50 rounded-full px-8 py-3 text-purple-200 font-medium hover:bg-purple-200 hover:text-black hover:border-purple-200 ease-in-out duration-700 transition-all"
+            >
+              <FaGithub size={18} />
+              Ver código no GitHub
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col py-6 px-10 justify-center items-center text-center w-full">
-          <h1 className="text-3xl lg:text-4xl my-4">{slides[current].name}</h1>
-          <h1 className="text-xl lg:text-2xl">
-            Tecnologias usadas: {slides[current].technologies}
-          </h1>
-          <hr className="w-full my-10"></hr>
-          <h1 className="text-lg lg:text-xl text-center px-6">
-            {slides[current].description}
-          </h1>
-          <Link
-            target="_blank"
-            className="border-2 border-cyan-200 rounded-full justify-center text-xl  p-4 m-10 w-3/4 hover:bg-cyan-200 hover:border-black hover:text-black ease-in-out duration-1000 flex lg:w-1/4 lg:text-center  "
-            href={slides[current].gitLink}
-          >
-            Codigo do projeto
-          </Link>
-        </div>
-    </Reveal>
-      </div>
+      </Reveal>
+    </div>
   );
 }
