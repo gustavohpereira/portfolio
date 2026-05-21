@@ -71,7 +71,7 @@ export default function HeroSection() {
         if(p.y<-4){p.y=H+4;p.x=rand(0,W);}
         if(p.x<-4)p.x=W+4; if(p.x>W+4)p.x=-4;
         ctx!.beginPath(); ctx!.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx!.fillStyle=`rgba(34,211,238,${p.alpha})`; ctx!.fill();
+        ctx!.fillStyle=`rgba(34, 211, 238, ${p.alpha})`; ctx!.fill();
       }
       animId=requestAnimationFrame(draw);
     }
@@ -100,7 +100,7 @@ export default function HeroSection() {
         {/* Foto mobile */}
         <Reveal className="lg:hidden">
           <div className="flex items-center justify-center">
-            <div className="rounded-full w-52 h-52 border-purple-200 border-2 bg-hero-image bg-cover bg-center" />
+            <div className="rounded-full w-52 h-52 border-app-accent-soft border-2 bg-hero-image bg-cover bg-center" />
           </div>
         </Reveal>
 
@@ -110,10 +110,10 @@ export default function HeroSection() {
           {/* Linha 1 — saudação */}
           <div className="h-7 mb-1">
             {visible.greeting && (
-              <span className="text-sm lg:text-base font-medium text-purple-400 tracking-widest uppercase">
+              <span className="text-sm lg:text-base font-medium text-app-accent tracking-widest uppercase">
                 {typed.greeting}
                 {activeLine === "greeting" && (
-                  <span className="inline-block w-0.5 h-4 bg-purple-400 ml-0.5 align-middle animate-pulse" />
+                  <span className="inline-block w-0.5 h-4 bg-app-accent ml-0.5 align-middle animate-pulse" />
                 )}
               </span>
             )}
@@ -125,7 +125,7 @@ export default function HeroSection() {
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
                 {typed.name}
                 {activeLine === "name" && (
-                  <span className="inline-block w-1 h-12 lg:h-14 bg-purple-400 ml-1 align-middle animate-pulse" />
+                  <span className="inline-block w-1 h-12 lg:h-14 bg-app-accent ml-1 align-middle animate-pulse" />
                 )}
               </h1>
             )}
@@ -134,10 +134,10 @@ export default function HeroSection() {
           {/* Linha 3 — cargo */}
           <div className="h-8 mb-8">
             {visible.role && (
-              <p className="text-xl lg:text-2xl text-neutral-400">
+              <p className="text-xl lg:text-2xl text-app-muted">
                 {typed.role}
                 {activeLine === "role" && (
-                  <span className="inline-block w-0.5 h-5 bg-purple-400 ml-0.5 align-middle animate-pulse" />
+                  <span className="inline-block w-0.5 h-5 bg-app-accent ml-0.5 align-middle animate-pulse" />
                 )}
               </p>
             )}
@@ -156,8 +156,8 @@ export default function HeroSection() {
 
         {/* Foto desktop */}
         <Reveal className="hidden lg:block">
-          <div className="border-l-4 border-purple-200 pl-6 h-3/5 flex items-center justify-center">
-            <div className="rounded-full w-80 h-80 border-purple-200 border-2 bg-hero-image bg-cover bg-center mx-16" />
+          <div className="border-l-4 border-app-accent-soft pl-6 h-3/5 flex items-center justify-center">
+            <div className="rounded-full w-80 h-80 border-app-accent-soft border-2 bg-hero-image bg-cover bg-center mx-16" />
           </div>
         </Reveal>
       </div>
@@ -165,7 +165,7 @@ export default function HeroSection() {
       {/* Botão scroll */}
       <div className={`relative z-10 flex justify-center pb-6 transition-opacity duration-700 ${done ? "opacity-100" : "opacity-0"}`}>
         <button
-          className="rounded-full border-2 text-purple-200 border-purple-200 w-16 h-16 flex justify-center items-center hover:bg-purple-200 hover:text-black ease-in-out duration-1000"
+          className="rounded-full border-2 text-app-accent-soft border-app-accent-soft w-16 h-16 flex justify-center items-center hover:bg-app-accent-soft hover:text-app-inverted ease-in-out duration-1000"
           onClick={() => scrollToSection("about")}
           aria-label="Ir para sobre mim"
         >

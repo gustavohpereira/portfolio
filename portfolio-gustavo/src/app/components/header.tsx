@@ -3,11 +3,11 @@ import scrollToSection from "../functions/scrollTo";
 
 export default function Header() {
   const buttonColor =
-    " text-base hover:text-purple-200 duration-300 bg-background-general lg:text-xl";
+    "text-xs font-medium tracking-wide  text-app-text transition-colors duration-300 hover:text-app-accent-soft focus-visible:outline-none focus-visible:text-app-accent-soft sm:text-sm lg:text-lg";
 
   return (
-    <div className="fixed border-b border-gray-500 py-4 bg-background-general w-lvw lg:flex lg:justify-center">
-      <div className=" gap-4 flex justify-center lg:gap-20 w-full lg:w-1/2 ">
+    <header className="fixed left-0 top-0 z-50 w-full border-b border-app-border/40 bg-app-surface/50 py-4 shadow-lg shadow-app-overlay/20 backdrop-blur-md lg:flex lg:justify-center">
+      <nav className="flex w-full justify-center gap-3 px-3 sm:gap-5 lg:w-1/2 lg:gap-20">
         <button className={buttonColor} onClick={() => scrollToSection("home")}>
           INICIO
         </button>
@@ -19,7 +19,7 @@ export default function Header() {
         </button>
         <button
           className={buttonColor}
-          onClick={() => scrollToSection("tecnologies")}
+          onClick={() => scrollToSection("technologies")}
         >
           TECNOLOGIAS
         </button>
@@ -29,7 +29,7 @@ export default function Header() {
         >
           PROJETOS
         </button>
-      </div>
-    </div>
+      </nav>
+    </header>
   );
 }

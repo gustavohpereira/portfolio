@@ -20,14 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-<body
-  className={roboto.className + " text-slate-200 dark:text-slate-200 min-h-screen"}
-  style={{
-    background: "linear-gradient(135deg, #020617, #0f172a, #1e1b4b, #3b0764)",
-    backgroundSize: "400% 400%",
-    animation: "gradientMove 18s ease infinite"
-  }}
->
+      <body
+        className={`${roboto.className} min-h-screen bg-app-gradient bg-[length:400%_400%] text-app-text animate-gradient-move`}
+      >
         <Header />
         {children}
         <Footer />

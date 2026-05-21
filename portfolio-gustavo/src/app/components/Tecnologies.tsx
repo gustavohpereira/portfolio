@@ -1,124 +1,206 @@
 "use client";
-import { useState } from "react";
-import Image from "next/image";
+
+import { useMemo, useState } from "react";
 import Reveal from "./reveal";
 
-const categories = ["Todos", "Front-end", "Back-end", "Outros"];
+const categories = ["Todos", "Front-end", "Back-end", "Banco de Dados", "DevOps", "IA & Outros"];
 
-const categoryStyles: Record<string, { card: string; icon: string }> = {
+const categoryStyles: Record<
+  string,
+  {
+    card: string;
+    icon: string;
+    badge: string;
+  }
+> = {
   "Front-end": {
-    card: "bg-purple-950/20 border-purple-400/15 hover:border-purple-400/35",
-    icon: "bg-purple-400/10 text-purple-300",
+    card: "bg-tech-frontend-surface/20 border-tech-frontend/10 hover:border-tech-frontend/30",
+    icon: "bg-tech-frontend/10",
+    badge: "text-tech-frontend",
   },
+
   "Back-end": {
-    card: "bg-violet-950/20 border-violet-400/15 hover:border-violet-400/35",
-    icon: "bg-violet-400/10 text-violet-300",
+    card: "bg-tech-backend-surface/20 border-tech-backend/10 hover:border-tech-backend/30",
+    icon: "bg-tech-backend/10",
+    badge: "text-tech-backend",
   },
-  Outros: {
-    card: "bg-orange-950/20 border-orange-400/15 hover:border-orange-400/35",
-    icon: "bg-orange-400/10 text-orange-300",
+
+  "Banco de Dados": {
+    card: "bg-tech-database-surface/20 border-tech-database/10 hover:border-tech-database/30",
+    icon: "bg-tech-database/10",
+    badge: "text-tech-database",
+  },
+
+  DevOps: {
+    card: "bg-tech-devops-surface/20 border-tech-devops/10 hover:border-tech-devops/30",
+    icon: "bg-tech-devops/10",
+    badge: "text-tech-devops",
+  },
+
+  "IA & Outros": {
+    card: "bg-tech-ai-surface/20 border-tech-ai/10 hover:border-tech-ai/30",
+    icon: "bg-tech-ai/10",
+    badge: "text-tech-ai",
   },
 };
 
-const tecnologies = [
-  { name: "git",                        category: "Outros"    },
-  { name: "docker",                     category: "Outros"    },
-  { name: "figma",                      category: "Outros"    },
-  { name: "power BI",                   category: "Outros"    },
-  { name: "jest",                       category: "Outros"    },
-  { name: "aws",                        category: "Outros"    },
-  { name: "desenvolvimento agil (scrum)", category: "Outros"  },
-  { name: "java",                       category: "Back-end"  },
-  { name: "python",                     category: "Back-end"  },
-  { name: "php",                        category: "Back-end"  },
-  { name: "node",                       category: "Back-end"  },
-  { name: "golang",                     category: "Back-end"  },
-  { name: "typeScript",                 category: "Back-end"  },
-  { name: "javaScript",                 category: "Back-end"  },
-  { name: "express",                    category: "Back-end"  },
-  { name: "nestjs",                     category: "Back-end"  },
-  { name: "django",                     category: "Back-end"  },
-  { name: "flask",                      category: "Back-end"  },
-  { name: "typeORM",                    category: "Back-end"  },
-  { name: "pandas",                     category: "Back-end"  },
-  { name: "mysql",                      category: "Back-end"  },
-  { name: "firebase",                   category: "Back-end"  },
-  { name: "postgree",                   category: "Back-end"  },
-  { name: "Next",                       category: "Front-end" },
-  { name: "bootstrap",                  category: "Front-end" },
-  { name: "axios",                      category: "Front-end" },
-  { name: "Tailwind css",               category: "Front-end" },
-  { name: "Angular",                    category: "Front-end" },
-  { name: "css",                        category: "Front-end" },
-  { name: "React",                      category: "Front-end" },
-  { name: "React Native",               category: "Front-end" },
+const technologies = [
+  // FRONT-END
+  { name: "React", icon: "react", category: "Front-end" },
+  { name: "Next.js", icon: "nextjs", category: "Front-end" },
+  { name: "Vue.js", icon: "vue", category: "Front-end" },
+  { name: "React Native", icon: "react", category: "Front-end" },
+  { name: "Angular", icon: "angular", category: "Front-end" },
+  { name: "TypeScript", icon: "ts", category: "Front-end" },
+  { name: "JavaScript", icon: "js", category: "Front-end" },
+  { name: "TailwindCSS", icon: "tailwind", category: "Front-end" },
+  { name: "Bootstrap", icon: "bootstrap", category: "Front-end" },
+  { name: "CSS3", icon: "css", category: "Front-end" },
+  { name: "HTML5", icon: "html", category: "Front-end" },
+
+  // BACK-END
+  { name: "Node.js", icon: "nodejs", category: "Back-end" },
+  { name: "NestJS", icon: "nestjs", category: "Back-end" },
+  { name: "Express.js", icon: "express", category: "Back-end" },
+  { name: "Python", icon: "python", category: "Back-end" },
+  { name: "Django", icon: "django", category: "Back-end" },
+  { name: "Flask", icon: "flask", category: "Back-end" },
+  { name: "Java", icon: "java", category: "Back-end" },
+  { name: "Spring Boot", icon: "spring", category: "Back-end" },
+  { name: "PHP", icon: "php", category: "Back-end" },
+
+  // DATABASE
+  { name: "PostgreSQL", icon: "postgres", category: "Banco de Dados" },
+  { name: "MySQL", icon: "mysql", category: "Banco de Dados" },
+  { name: "MongoDB", icon: "mongodb", category: "Banco de Dados" },
+  { name: "Firebase", icon: "firebase", category: "Banco de Dados" },
+  { name: "SQL Server", icon: "sqlite", category: "Banco de Dados" },
+
+  // DEVOPS
+  { name: "Docker", icon: "docker", category: "DevOps" },
+  { name: "AWS", icon: "aws", category: "DevOps" },
+  { name: "Git", icon: "git", category: "DevOps" },
+  { name: "RabbitMQ", icon: "rabbitmq", category: "DevOps" },
+  { name: "Jest", icon: "jest", category: "DevOps" },
+
+  // IA & OUTROS
+  { name: "Pandas", icon: "python", category: "IA & Outros" },
+  { name: "LangChain", icon: "python", category: "IA & Outros" },
+  { name: "LangGraph", icon: "python", category: "IA & Outros" },
+  { name: "OCR", icon: "opencv", category: "IA & Outros" },
+  { name: "Power BI", icon: "azure", category: "IA & Outros" },
+  { name: "Scrum", icon: "github", category: "IA & Outros" },
 ];
 
-export default function Tecnologies() {
+export default function Technologies() {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
 
-  const filtered =
-    selectedCategory === "Todos"
-      ? tecnologies
-      : tecnologies.filter((t) => t.category === selectedCategory);
+  const filteredTechnologies = useMemo(() => {
+    if (selectedCategory === "Todos") return technologies;
 
-  const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+    return technologies.filter(
+      (tech) => tech.category === selectedCategory
+    );
+  }, [selectedCategory]);
 
   return (
-    <div
-      className="w-full relative overflow-hidden  py-20 px-6"
-      id="tecnologies"
+    <section
+      id="technologies"
+      className="relative w-full overflow-hidden py-24 px-6"
     >
+      <Reveal name="technologies">
+        <div className="flex flex-col items-center">
+          {/* HEADER */}
+          <span className="mb-3 text-xs font-medium tracking-[0.3em] uppercase text-app-accent">
+            habilidades
+          </span>
 
-      <Reveal name="tecnologies" className="relative z-10 flex flex-col items-center">
-        {/* Cabeçalho */}
-        <span className="text-xs font-medium text-purple-400 tracking-widest uppercase mb-3">
-          habilidades
-        </span>
-        <h1 className="text-5xl font-semibold mb-8 text-center">TECNOLOGIAS</h1>
+          <h2 className="text-center text-4xl md:text-5xl font-bold tracking-tight">
+            Tecnologias
+          </h2>
 
-        {/* Filtros */}
-        <div className="flex flex-wrap gap-2 justify-center mb-10">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-medium border transition-all duration-300 ${
-                selectedCategory === cat
-                  ? "border-purple-400 text-purple-400 bg-purple-400/10"
-                  : "border-neutral-700 text-neutral-400 hover:border-neutral-500 hover:text-neutral-200"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+          <p className="mt-4 max-w-2xl text-center text-app-muted leading-relaxed">
+            Tecnologias e ferramentas utilizadas no desenvolvimento de aplicações
+            modernas, APIs escaláveis, microsserviços e soluções com IA.
+          </p>
 
-        {/* Grid de cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 w-full max-w-5xl">
-          {filtered.map((tech, i) => {
-            const style = categoryStyles[tech.category];
-            return (
-              <div
-                key={i}
-                className={`flex flex-col items-center gap-3 p-4 rounded-xl border transition-all duration-300 hover:-translate-y-1 ${style.card}`}
-              >
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${style.icon}`}>
-                  <Image
-                    src={`${tech.name}.svg`}
-                    alt={`${tech.name} logo`}
-                    width={32}
-                    height={32}
-                  />
+          {/* FILTERS */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            {categories.map((category) => {
+              const isActive = selectedCategory === category;
+
+              return (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`
+                    rounded-full border px-5 py-2 text-sm font-medium transition-all duration-300
+                    ${
+                      isActive
+                        ? "border-app-accent bg-app-accent/10 text-app-accent-strong"
+                        : "border-app-border bg-app-surface/40 text-app-muted hover:border-app-subtle hover:text-app-text-strong"
+                    }
+                  `}
+                >
+                  {category}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* GRID */}
+          <div className="mt-14 grid w-full max-w-6xl grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            {filteredTechnologies.map((tech) => {
+              const style = categoryStyles[tech.category];
+
+              return (
+                <div
+                  key={tech.name}
+                  className={`
+                    group relative overflow-hidden rounded-2xl border p-5
+                    backdrop-blur-sm transition-all duration-300
+                    hover:-translate-y-1 hover:shadow-lg
+                    ${style.card}
+                  `}
+                >
+                  {/* Glow */}
+                  <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-gradient-to-br from-app-text-strong/[0.03] to-transparent" />
+
+                  <div className="relative z-10 flex flex-col items-center text-center">
+                    {/* ICON */}
+                    <div
+                      className={`
+                        mb-4 flex h-16 w-16 items-center justify-center rounded-2xl
+                        transition-transform duration-300 group-hover:scale-110
+                        ${style.icon}
+                      `}
+                    >
+                      <img
+                        src={`https://skillicons.dev/icons?i=${tech.icon}`}
+                        alt={tech.name}
+                        className="h-10 w-10"
+                        loading="lazy"
+                      />
+                    </div>
+
+                    {/* NAME */}
+                    <h3 className="text-sm font-medium text-app-text-strong">
+                      {tech.name}
+                    </h3>
+
+                    {/* CATEGORY */}
+                    <span
+                      className={`mt-2 text-xs font-medium ${style.badge}`}
+                    >
+                      {tech.category}
+                    </span>
+                  </div>
                 </div>
-                <span className="text-xs text-neutral-300 text-center leading-tight">
-                  {capitalize(tech.name)}
-                </span>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </Reveal>
-    </div>
+    </section>
   );
 }

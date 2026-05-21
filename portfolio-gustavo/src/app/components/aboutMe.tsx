@@ -28,7 +28,7 @@ export default function AboutMe() {
   };
 
   const buttonColor =
-    "border-2 border-purple-200 rounded-full w-full hover:bg-purple-200 hover:border-black hover:text-black ease-in-out duration-1000 flex items-center whitespace-nowrap";
+    "border-2 border-app-accent-soft rounded-full w-full hover:bg-app-accent-soft hover:border-app-inverted hover:text-app-inverted ease-in-out duration-1000 flex items-center whitespace-nowrap";
 
   return (
     <div
@@ -48,14 +48,14 @@ export default function AboutMe() {
             target="_blank"
             className={buttonColor}
           >
-            <span className="border-r border-purple-200/40 p-4 flex justify-center items-center">
+            <span className="border-r border-app-accent-soft/40 p-4 flex justify-center items-center">
               <SlDocs size={20} />
             </span>
             <span className="px-4">Ver Currículo</span>
           </Link>
 
           <button className={buttonColor} onClick={handleEmailClick}>
-            <span className="border-r border-purple-200/40 p-4 flex justify-center items-center">
+            <span className="border-r border-app-accent-soft/40 p-4 flex justify-center items-center">
               {isCopied ? <MdMarkEmailRead size={20} /> : <MdEmail size={20} />}
             </span>
             <span className="px-4">{isCopied ? "Copiado!" : "Copiar email"}</span>
@@ -64,13 +64,13 @@ export default function AboutMe() {
 
         {/* Texto */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left flex-1 order-1 lg:order-2">
-          <span className="text-xs font-medium text-purple-400 tracking-widest uppercase mb-4">
+          <span className="text-xs font-medium text-app-accent tracking-widest uppercase mb-4">
             sobre mim
           </span>
 
           <h1 className="text-4xl lg:text-6xl font-semibold mb-6">SOBRE MIM</h1>
 
-          <p className="text-lg lg:text-xl text-neutral-300 leading-relaxed mb-8">
+          <p className="text-lg lg:text-xl text-app-text leading-relaxed mb-8">
             Sou apaixonado por tecnologia e acredito que bom código nasce da
             combinação entre lógica e comunicação. Busco sempre criar soluções
             que façam a diferença — tanto para quem usa quanto para quem mantém.
@@ -78,8 +78,8 @@ export default function AboutMe() {
 
           <ul className="flex flex-col gap-4 w-full">
             {highlights.map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-base lg:text-lg text-neutral-400">
-                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-purple-400 flex-shrink-0" />
+              <li key={i} className="flex items-start gap-3 text-base lg:text-lg text-app-muted">
+                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-app-accent flex-shrink-0" />
                 {item}
               </li>
             ))}
