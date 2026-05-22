@@ -21,14 +21,11 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={
-          roboto.className +
-          " bg-background-general text-slate-200 dark:text-slate-200 w-viewport h-viewport"
-        }
+        className={`${roboto.className} min-h-screen bg-app-gradient bg-[length:400%_400%] text-app-text animate-gradient-move`}
       >
-        <Header></Header>
+        <Header />
         {children}
-        <Footer></Footer>
+        <Footer />
       </body>
     </html>
   );
