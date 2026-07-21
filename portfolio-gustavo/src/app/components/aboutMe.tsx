@@ -7,7 +7,7 @@ import Reveal from "./reveal";
 import { sendGTMEvent } from "@next/third-parties/google";
 
 const highlights = [
-  "Cursando Análise e Desenvolvimento de Sistemas na FATEC-SJC desde 2022",
+  "formado em Análise e Desenvolvimento de Sistemas na FATEC-SJC em 2025",
   "Experiência de estágio na área desde 2023",
   "Interesse em projetos inovadores que transformam ideias em realidade",
   "Comunicação clara e colaboração efetiva em equipe",
