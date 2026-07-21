@@ -32,6 +32,15 @@ const SliderData = [
     gitLink: "https://github.com/gustavohpereira/portfolio",
   },
   {
+    source: "/capybara organizer.mp4",
+    name: "Capybara Organizer",
+    description:
+      "Desenvolvi uma aplicação full stack para permitir que usuários organizem tarefas em diferentes quadros, acompanhem o andamento por status, adicionem membros às boards e recebam atualizações em tempo real quando tarefas são movimentadas. O projeto foi dividido em dois serviços principais: uma aplicação web em Next.js e uma API REST em Node.js com Express, usando PostgreSQL via Docker Compose. No backend, separei responsabilidades entre controllers, services, routes, entities, middlewares e testes, mantendo a regra de negócio isolada da camada HTTP. Usei TypeScript no front e no back, Express com TypeORM para modelar usuários, boards, membros, administradores e tarefas, JWT com bcrypt para autenticação, middleware de proteção de rotas e Socket.IO para refletir mudanças nos boards conectados. No frontend, construí uma interface em React com Tailwind CSS, Axios, Context API e drag and drop para tornar o gerenciamento das tarefas mais fluido. Também adicionei testes com Jest na camada de serviços para validar regras de usuário, board e tarefa sem depender diretamente da interface.",
+    technologies:
+      "TypeScript, Node.js, Express, Next.js, React, PostgreSQL, TypeORM, Docker, Socket.IO, JWT, bcrypt, Tailwind CSS, Axios, Jest",
+    gitLink: "https://github.com/gustavohpereira/capybara-organizer",
+  },
+  {
     source: "/API4.jpeg",
     name: "Gerenciamento de Salas e Reuniões - ORCA",
     description:

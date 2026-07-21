@@ -16,6 +16,7 @@ export default function ProjetosComponent() {
     setCurrent(current === slides.length - 1 ? 0 : current + 1);
 
   const slide = slides[current];
+  const isVideo = slide.source.toLowerCase().endsWith(".mp4");
 
   return (
     <div
@@ -47,11 +48,23 @@ export default function ProjetosComponent() {
 
             {/* Imagem */}
             <div className="flex-1 border border-app-accent-soft/20 rounded-2xl overflow-hidden bg-app-surface-soft aspect-video relative">
-              <img
-                src={slide.source}
-                alt={slide.name}
-                className="w-full h-full object-cover transition-opacity duration-300"
-              />
+              {isVideo ? (
+                <video
+                  src={slide.source}
+                  className="w-full h-full object-cover transition-opacity duration-300"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  aria-label={slide.name}
+                />
+              ) : (
+                <img
+                  src={slide.source}
+                  alt={slide.name}
+                  className="w-full h-full object-cover transition-opacity duration-300"
+                />
+              )}
               <div className="absolute top-3 right-3 bg-app-overlay/60 backdrop-blur-sm text-app-accent-strong text-xs px-3 py-1 rounded-full border border-app-accent/20">
                 {current + 1} / {slides.length}
               </div>
